@@ -21,7 +21,7 @@ class CreateSampelTable extends Migration
             $table->string('Kemasan');
             $table->integer('Jumlah');
             $table->string('JenisAnalisis');
-            $table->string('HargaSampel');
+            $table->bigInteger('HargaSampel');
         });
     }
 
