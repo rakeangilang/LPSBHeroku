@@ -29,6 +29,6 @@ class CreatePemberitahuanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Pemberitahuan');
+        Schema::dropIfExists('pemberitahuan');
     }
 }

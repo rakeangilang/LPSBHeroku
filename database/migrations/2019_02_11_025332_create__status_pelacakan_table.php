@@ -26,6 +26,6 @@ class CreateStatusPelacakanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('StatusPelacakan');
+        Schema::dropIfExists('statuspelacakan');
     }
 }

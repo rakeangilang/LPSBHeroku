@@ -32,6 +32,6 @@ class CreateSampelTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Sampel');
+        Schema::dropIfExists('sampel');
     }
 }

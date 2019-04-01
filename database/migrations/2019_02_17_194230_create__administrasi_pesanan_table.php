@@ -38,6 +38,6 @@ class CreateAdministrasiPesananTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('AdministrasiPesanan');
+        Schema::dropIfExists('administrasipesanan');
     }
 }

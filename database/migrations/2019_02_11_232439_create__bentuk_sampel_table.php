@@ -30,6 +30,6 @@ class CreateBentukSampelTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('BentukSampel');
+        Schema::dropIfExists('bentuksampel');
     }
 }

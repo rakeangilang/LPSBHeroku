@@ -34,6 +34,6 @@ class CreateDokumenPesananTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('DokumenPesanan');
+        Schema::dropIfExists('dokumenpesanan');
     }
 }

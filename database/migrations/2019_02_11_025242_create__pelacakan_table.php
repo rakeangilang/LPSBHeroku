@@ -31,6 +31,6 @@ class CreatePelacakanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Pelacakan');
+        Schema::dropIfExists('pelacakan');
     }
 }
