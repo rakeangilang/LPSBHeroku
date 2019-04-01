@@ -13,7 +13,7 @@ class CreateStatusPelacakanTable extends Migration
      */
     public function up()
     {
-        Schema::create('StatusPelacakan', function (Blueprint $table) {
+        Schema::create('statuspelacakan', function (Blueprint $table) {
             $table->increments('IDStatus');
             $table->string('Status');
         });

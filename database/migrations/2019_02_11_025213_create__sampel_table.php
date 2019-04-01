@@ -13,7 +13,7 @@ class CreateSampelTable extends Migration
      */
     public function up()
     {
-        Schema::create('Sampel', function (Blueprint $table) {
+        Schema::create('sampel', function (Blueprint $table) {
             $table->bigIncrements('IDPesanan');
             $table->integer('NoSampel')->nullable(true);
             $table->string('JenisSampel');

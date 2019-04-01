@@ -13,7 +13,7 @@ class CreateBentukSampelTable extends Migration
      */
     public function up()
     {
-        Schema::create('BentukSampel', function (Blueprint $table) {
+        Schema::create('bentuksampel', function (Blueprint $table) {
             $table->increments('IDKatalog');
             $table->boolean('Ekstrak')->default(0);
             $table->boolean('Simplisia')->default(0);

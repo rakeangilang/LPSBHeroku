@@ -13,7 +13,7 @@ class CreateKatalogTable extends Migration
      */
     public function up()
     {
-        Schema::create('Katalog', function (Blueprint $table) {
+        Schema::create('katalog', function (Blueprint $table) {
             $table->increments('IDKatalog');
             $table->integer('IDKategori');
             $table->string('JenisAnalisis');

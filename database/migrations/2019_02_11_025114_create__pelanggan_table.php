@@ -13,7 +13,7 @@ class CreatePelangganTable extends Migration
      */
     public function up()
     {
-        Schema::create('Pelanggan', function (Blueprint $table) {
+        Schema::create('pelanggan', function (Blueprint $table) {
             $table->increments('IDPelanggan');
             $table->string('Email');
             $table->string('Password');

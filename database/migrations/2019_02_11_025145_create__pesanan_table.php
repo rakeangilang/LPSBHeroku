@@ -13,7 +13,7 @@ class CreatePesananTable extends Migration
      */
     public function up()
     {
-        Schema::create('Pesanan', function (Blueprint $table) {
+        Schema::create('pesanan', function (Blueprint $table) {
             $table->bigIncrements('IDPesanan');
             $table->integer('IDPelanggan');
             $table->integer('NoPesanan');

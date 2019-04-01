@@ -13,7 +13,7 @@ class CreatePelacakanTable extends Migration
      */
     public function up()
     {
-        Schema::create('Pelacakan', function (Blueprint $table) {
+        Schema::create('pelacakan', function (Blueprint $table) {
             $table->bigIncrements('IDPesanan');
             $table->integer('IDStatus');
             $table->boolean('KirimSertifikat')->default(0);

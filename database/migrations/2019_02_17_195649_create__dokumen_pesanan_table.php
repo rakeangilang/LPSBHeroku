@@ -13,7 +13,7 @@ class CreateDokumenPesananTable extends Migration
      */
     public function up()
     {
-        Schema::create('DokumenPesanan', function (Blueprint $table) {
+        Schema::create('dokumenpesanan', function (Blueprint $table) {
             $table->bigIncrements('IDPesanan');
             $table->string('BuktiPengiriman')->nullable(true);
             $table->string('BuktiPembayaran')->nullable(true);

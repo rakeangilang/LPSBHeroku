@@ -13,7 +13,7 @@ class CreateAdministrasiPesananTable extends Migration
      */
     public function up()
     {
-        Schema::create('AdministrasiPesanan', function (Blueprint $table) {
+        Schema::create('administrasipesanan', function (Blueprint $table) {
             $table->bigIncrements('IDPesanan');
             $table->string('NamaLengkap');
             $table->string('Institusi');
