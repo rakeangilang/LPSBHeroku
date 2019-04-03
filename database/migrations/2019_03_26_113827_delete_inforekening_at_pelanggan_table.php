@@ -30,9 +30,9 @@ class DeleteInforekeningAtPelangganTable extends Migration
     {
         Schema::table('pelanggan', function (Blueprint $table) {
             //
-            $table->varchar('NamaRekening')->nullable();
+            $table->string('NamaRekening')->nullable();
             $table->string('NamaBank')->nullable();
-            $table->varchar('NoRekening')->nullable();
+            $table->string('NoRekening')->nullable();
         });
     }
 }
