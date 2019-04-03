@@ -16,8 +16,8 @@ class CreatePelacakanTable extends Migration
         Schema::create('pelacakan', function (Blueprint $table) {
             $table->bigIncrements('IDPesanan');
             $table->integer('IDStatus');
-            $table->boolean('KirimSertifikat')->default(0);
-            $table->boolean('SisaSampel')->default(0);
+            $table->tinyInteger('KirimSertifikat')->default(0);
+            $table->tinyInteger('SisaSampel')->default(0);
             $table->boolean('SertifikatDiterima')->default(0);
             $table->timestamp('UpdateTerakhir');
             $table->timestamp('WaktuPembayaran')->nullable(true);
