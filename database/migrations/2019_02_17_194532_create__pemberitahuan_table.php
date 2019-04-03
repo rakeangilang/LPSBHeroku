@@ -18,7 +18,7 @@ class CreatePemberitahuanTable extends Migration
             $table->bigInteger('IDPesanan');
             $table->integer('IDStatus');
             $table->boolean('Dilihat')->default(0);
-            $table->timestamp("dimulaipada");
+            $table->timestamp("WaktuPemberitahuan");
         });
     }
 

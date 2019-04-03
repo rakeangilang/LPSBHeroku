@@ -17,7 +17,7 @@ class CreatePelacakanTable extends Migration
             $table->bigIncrements('IDPesanan');
             $table->integer('IDStatus');
             $table->boolean('KirimSertifikat')->default(0);
-            $table->boolean('SisaDiterima')->default(0);
+            $table->boolean('SisaSampel')->default(0);
             $table->boolean('SertifikatDiterima')->default(0);
             $table->timestamp('UpdateTerakhir');
             $table->timestamp('WaktuPembayaran')->nullable(true);

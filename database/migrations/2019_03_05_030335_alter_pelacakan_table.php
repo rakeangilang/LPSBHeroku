@@ -19,7 +19,7 @@ class AlterPelacakanTable extends Migration
             $table->boolean('Pembayaran')->default(1)->after('IDStatus');
 
             $table->dropColumn('SertifikatDiterima');
-            $table->renameColumn('SisaDiterima', 'SisaSampel');
+         //   $table->renameColumn('SisaDiterima', 'SisaSampel');
         });
     }
 
@@ -36,7 +36,7 @@ class AlterPelacakanTable extends Migration
             $table->dropColumn('Pembayaran');
 
             $table->boolean('SertifikatDiterima');
-            $table->renameColumn('SisaSampel', 'SisaDiterima');
+           // $table->renameColumn('SisaSampel', 'SisaDiterima');
         });
     }
 }
