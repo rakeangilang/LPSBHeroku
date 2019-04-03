@@ -15,8 +15,8 @@ class ChangeStatusSisasampelKirimsertifikatAtPelacakanTable extends Migration
     {
         Schema::table('pelacakan', function (Blueprint $table) {
             //
-            $table->boolean('SisaSampel')->default(1)->change();
-            $table->boolean('KirimSertifikat')->default(1)->change();
+            $table->tinyInteger('SisaSampel')->default(1)->change();
+            $table->tinyInteger('KirimSertifikat')->default(1)->change();
         });
     }
 
@@ -29,8 +29,8 @@ class ChangeStatusSisasampelKirimsertifikatAtPelacakanTable extends Migration
     {
         Schema::table('pelacakan', function (Blueprint $table) {
             //
-            $table->boolean('SisaSampel')->default(0)->change();
-            $table->boolean('KirimSertifikat')->default(0)->change();
+         //   $table->boolean('SisaSampel')->default(0)->change();
+         //   $table->boolean('KirimSertifikat')->default(0)->change();
         });
     }
 }
