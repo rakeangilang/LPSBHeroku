@@ -28,7 +28,7 @@ class AddWaktuPembatalanToPelacakanTable extends Migration
     {
         Schema::table('pelacakan', function (Blueprint $table) {
             //
-            $table->dropColumn('WaktuBatal');
+           // $table->dropColumn('WaktuBatal');
         });
     }
 }
