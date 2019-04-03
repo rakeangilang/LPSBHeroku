@@ -26,7 +26,7 @@ class CreateAdministrasiPesananTable extends Migration
             $table->string('NamaRekening');
             $table->string('NamaBank');
             $table->string('NoRekening');
-            $table->boolean('VerifikasiPembayaran')->default(0);
+            //$table->boolean('VerifikasiPembayaran')->default(0);
             $table->string('CatatanPembatalan')->nullable(true);
         });
     }

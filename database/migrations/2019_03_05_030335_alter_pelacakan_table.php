@@ -15,8 +15,8 @@ class AlterPelacakanTable extends Migration
     {
         Schema::table('pelacakan', function (Blueprint $table) {
             //
-            $table->boolean('KirimSampel')->default(1)->after('IDStatus');
-            $table->boolean('Pembayaran')->default(1)->after('IDStatus');
+            $table->tinyInteger('KirimSampel')->default(1)->after('IDStatus');
+            $table->tinyInteger('Pembayaran')->default(1)->after('IDStatus');
 
             $table->dropColumn('SertifikatDiterima');
          //   $table->renameColumn('SisaDiterima', 'SisaSampel');
