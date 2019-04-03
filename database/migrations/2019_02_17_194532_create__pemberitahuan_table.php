@@ -13,7 +13,7 @@ class CreatePemberitahuanTable extends Migration
      */
     public function up()
     {
-        Schema::create('pemberitahuan', function (Blueprint $table) {
+        Schema::create("pemberitahuan", function (Blueprint $table) {
             $table->bigIncrements('IDPemberitahuan');
             $table->bigInteger('IDPesanan');
             $table->integer('IDStatus');

@@ -13,9 +13,9 @@ class ChangeDimulaipadaAtPemberitahuan extends Migration
      */
     public function up()
     {
-        Schema::table('pemberitahuan', function (Blueprint $table) {
+        Schema::table("pemberitahuan", function (Blueprint $table) {
             //
-            $table->renameColumn("Dilihat", "WaktuPemberitahuan");
+            $table->renameColumn("DimulaiPada", "WaktuPemberitahuan");
         });
     }
 
@@ -28,7 +28,7 @@ class ChangeDimulaipadaAtPemberitahuan extends Migration
     {
         Schema::table('pemberitahuan', function (Blueprint $table) {
             //
-            $table->renameColumn('WaktuPemberitahuan', 'Dilihat');
+            $table->renameColumn('WaktuPemberitahuan', 'DimulaiPada');
         });
     }
 }
