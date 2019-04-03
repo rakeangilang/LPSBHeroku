@@ -35,7 +35,7 @@ class AlterPelacakanTable extends Migration
             $table->dropColumn('KirimSampel');
             $table->dropColumn('Pembayaran');
 
-            $table->boolean('SertifikatDiterima');
+            $table->boolean('SertifikatDiterima')->nullable();
            // $table->renameColumn('SisaSampel', 'SisaDiterima');
         });
     }
