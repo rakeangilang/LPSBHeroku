@@ -15,7 +15,7 @@ class ChangeJumlahAtSampelTable extends Migration
     {
         Schema::table('sampel', function (Blueprint $table) {
             //
-            $table->string('jumlah')->change();
+      //      $table->string('jumlah')->change();
         });
     }
 

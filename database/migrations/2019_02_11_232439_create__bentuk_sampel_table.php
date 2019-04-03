@@ -15,10 +15,10 @@ class CreateBentukSampelTable extends Migration
     {
         Schema::create('bentuksampel', function (Blueprint $table) {
             $table->increments('IDKatalog');
-            $table->boolean('Ekstrak')->default(0);
-            $table->boolean('Simplisia')->default(0);
-            $table->boolean('Cairan')->default(0);
-            $table->boolean('Serbuk')->default(0);
+            $table->integer('Ekstrak')->nullable()->default(null);
+            $table->integer('Simplisia')->nullable()->default(null);
+            $table->integer('Cairan')->nullable()->default(null);
+            $table->integer('Serbuk')->nullable()->default(null);
             
         });
     }

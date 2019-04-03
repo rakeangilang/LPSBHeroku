@@ -15,7 +15,7 @@ class ChangeJumlahAtSampelTable2 extends Migration
     {
         Schema::table('sampel', function (Blueprint $table) {
             //
-            $table->integer('Jumlah')->change();
+       //     $table->integer('Jumlah')->change();
         });
     }
 
@@ -28,7 +28,7 @@ class ChangeJumlahAtSampelTable2 extends Migration
     {
         Schema::table('sampel', function (Blueprint $table) {
             //
-            $table->varchar('Jumlah')->change();
+         //   $table->varchar('Jumlah')->change();
         });
     }
 }

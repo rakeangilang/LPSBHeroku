@@ -15,10 +15,10 @@ class ChangeAllSampelTypeAndAddSatuanToBentuksampelTable extends Migration
     {
         Schema::table('bentuksampel', function (Blueprint $table) {
             //
-            $table->integer('Ekstrak')->nullable()->default(null)->change();
-            $table->integer('Simplisia')->nullable()->default(null)->change();
-            $table->integer('Cairan')->nullable()->default(null)->change();
-            $table->integer('Serbuk')->nullable()->default(null)->change();
+           // $table->integer('Ekstrak')->nullable()->default(null)->change();
+         //   $table->integer('Simplisia')->nullable()->default(null)->change();
+            //$table->integer('Cairan')->nullable()->default(null)->change();
+            //$table->integer('Serbuk')->nullable()->default(null)->change();
         });
     }
 
@@ -31,10 +31,10 @@ class ChangeAllSampelTypeAndAddSatuanToBentuksampelTable extends Migration
     {
         Schema::table('bentuksampel', function (Blueprint $table) {
             //
-            $table->boolean('Ekstrak')->default(0)->change;
-            $table->boolean('Simplisia')->default(0)->change;
-            $table->boolean('Cairan')->default(0)->change;
-            $table->boolean('Serbuk')->default(0)->change;
+            //$table->boolean('Ekstrak')->default(0)->change;
+            //$table->boolean('Simplisia')->default(0)->change;
+            //$table->boolean('Cairan')->default(0)->change;
+            //$table->boolean('Serbuk')->default(0)->change;
         });
     }
 }
