@@ -30,9 +30,9 @@ class ChangeRekeningsAtAdministrasipesananTable extends Migration
     {
         Schema::table('administrasipesanan', function (Blueprint $table) {
             //
-            $table->string('NamaRekening')->nullable(false)->change();
-            $table->string('NamaBank')->nullable(false)->change();
-            $table->string('NoRekening')->nullable(false)->change();
+           // $table->string('NamaRekening')->nullable(false)->change();
+           // $table->string('NamaBank')->nullable(false)->change();
+           // $table->string('NoRekening')->nullable(false)->change();
         });
     }
 }
