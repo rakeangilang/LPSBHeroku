@@ -63,6 +63,8 @@ class AddRecordsToStatuspelacakan extends Migration
                 'Status'=>'Sertifikat dikirim'
             ]
         ];
+
+        DB::table('statuspelacakan')->insert($data_status);
     }
 
     /**
