@@ -15,7 +15,7 @@ class ChangeKirimsertifikatAtPelacakanTable extends Migration
     {
         Schema::table('pelacakan', function (Blueprint $table) {
             //
-            $table->boolean('KirimSertifikat')->default(0)->change();
+           // $table->boolean('KirimSertifikat')->default(0)->change();
         });
     }
 
