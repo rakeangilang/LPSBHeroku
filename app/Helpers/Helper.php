@@ -128,7 +128,7 @@ class Helper
         		$pesanan_terakhir = Pesanan::select('IDPesanan')->whereMonth('WaktuPemesanan', $bulan)
         					->whereYear('WaktuPemesanan', $tahun)
         					->latest()
-        					->first();
+        					->first()->IDPesanan;
 
         		$count = Sampel::where('IDPesanan', $pesanan_terakhir)->max('NoSampel');
         	}
