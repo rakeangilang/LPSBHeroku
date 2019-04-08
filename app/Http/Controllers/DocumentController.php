@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\DokumenPesanan;
+use App\Pelacakan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Storage;
 
@@ -63,16 +66,25 @@ class DocumentController extends Controller
         return response()->download(storage_path('tes.docx'), $base_name, $headers);
     }
 
-    public function uploadBuktiPembayaran(User $user, Request $request)
+    public function uploadBuktiPembayaran($pes, User $user, Request $request)
     {
         try
         {
 //            $gambar = $request;
             //$id_pelanggan = $request->user()->IDPelanggan;
             //$debug_request = dd($request);
+            $bayar = "Bukti bayar";
             $all_req = $request->all();
-            $id_pelanggan = 'abc';
+            $id_pesanan = $pes;
             //$all_req = 'abc';
+
+            DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
+            $waktu_sekarang = Carbon::now('Asia/Jakarta')->toDateTimeString();
+            Pelacakan::where('IDPesanan', $id_pesanan)->update([
+                'Pembayaran'=>2, 
+                'WaktuPembayaran'=>$waktu_sekarang
+                ]);
+            
             if($request->hasFile('photo')){
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>'Foto terdeteksi', 'Status'=>200], 200);    
             }
