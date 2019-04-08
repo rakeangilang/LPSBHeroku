@@ -71,7 +71,7 @@ class DocumentController extends Controller
         try
         {
 //            $gambar = $request;
-            //$id_pelanggan = $request->user()->IDPelanggan;
+            $id_pelanggan = $request->user()->IDPelanggan;
             //$debug_request = dd($request);
             $bayar = "Bukti bayar";
             $all_req = $request->all();
@@ -84,7 +84,7 @@ class DocumentController extends Controller
                 'Pembayaran'=>2, 
                 'WaktuPembayaran'=>$waktu_sekarang
                 ]);
-            
+
             if($request->hasFile('photo')){
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>'Foto terdeteksi', 'Status'=>200], 200);    
             }
