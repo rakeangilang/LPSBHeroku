@@ -548,7 +548,7 @@ class PesananController extends Controller
                 $status_pesanan = array('WaktuValidasiPesanan'=>$waktu_validasi_pesanan, 'WaktuDikajiUlang'=>$waktu_dikaji_ulang,
                 'StatusUtama'=>$status_utama, 'WaktuDianalisis'=>$waktu_dianalisis, 'WaktuPesananDibuat'=>$waktu_pesanan_dibuat,
                 'StatusPembayaran'=>$status_pembayaran, 'WaktuPembayaran'=>$waktu_pembayaran,
-                'StatusKirimSampel'=>$status_kirim_sampel,
+                'StatusKirimSampel'=>$status_kirim_sampel, 'WaktuKirimSampel'=>$waktu_kirim_sampel,
                 'StatusSisaSampel'=>$status_sisa_sampel, 'StatusKirimSertifikat'=>$status_kirim_sertifikat);
             }
             // segmen 1 = belum dianalisis
