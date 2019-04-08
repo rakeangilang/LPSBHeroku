@@ -85,7 +85,7 @@ class DocumentController extends Controller
                 'WaktuPembayaran'=>$waktu_sekarang
                 ]);
 
-            if($request->hasFile('photo')){
+            if($request->hasFile('img') || $request->hasFile('photo')){
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>'Foto terdeteksi', 'Status'=>200], 200);    
             }
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
