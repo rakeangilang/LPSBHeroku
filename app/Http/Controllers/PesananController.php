@@ -416,7 +416,15 @@ class PesananController extends Controller
             }
             else $waktu_pembayaran = null;
             // kirim sampel stat 2 = bukti kirim sampel uploaded, 3 = pesanan diterima dan divalidasi
-
+            $waktu_kirim_sampel = NULL;
+            if ($status_kirim_sampel==3) {
+                $waktu_kirim_sampel = Pemberitahuan::select('WaktuPemberitahuan')
+                                    ->where('IDPesanan', $id_pesanan)
+                                    ->where('IDStatus', 22)
+                                    ->first()->WaktuPemberitahuan;
+                $waktu_kirim_sampel = $waktu_kirim_sampel;
+            }
+            else $waktu_kirim_sampel = null;
             // sisa sampel stat 3 = sisa sampel diterima, 2 = sisa sampel dikirim RESI!!!!!!!!!!
             if(Pemberitahuan::where('IDPesanan', $id_pesanan)->where('IDStatus', 51)->exists())
             {
@@ -509,7 +517,7 @@ class PesananController extends Controller
                 'StatusUtama'=>$status_utama,
                 'WaktuDibatalkan'=>$waktu_dibatalkan, 'WaktuPesananDibuat'=>$waktu_pesanan_dibuat,
                 'StatusPembayaran'=>$status_pembayaran, 'WaktuPembayaran'=>$waktu_pembayaran, 
-                'StatusKirimSampel'=>$status_kirim_sampel,
+                'StatusKirimSampel'=>$status_kirim_sampel, 'WaktuKirimSampel'=>$waktu_kirim_sampel,
                 'StatusSisaSampel'=>$status_sisa_sampel, 'StatusKirimSertifikat'=>$status_kirim_sertifikat);
             }
             // segmen 3 = batal
@@ -520,7 +528,7 @@ class PesananController extends Controller
                 'StatusUtama'=>$status_utama, 'AlasanBatal'=>$alasan_batal,
                 'WaktuDibatalkan'=>$waktu_dibatalkan, 'WaktuPesananDibuat'=>$waktu_pesanan_dibuat,
                 'StatusPembayaran'=>$status_pembayaran, 'WaktuPembayaran'=>$waktu_pembayaran, 
-                'StatusKirimSampel'=>$status_kirim_sampel,
+                'StatusKirimSampel'=>$status_kirim_sampel, 'WaktuKirimSampel'=>$waktu_kirim_sampel,
                 'StatusSisaSampel'=>$status_sisa_sampel, 'StatusKirimSertifikat'=>$status_kirim_sertifikat);
             }
 
@@ -529,7 +537,8 @@ class PesananController extends Controller
                 $status_pesanan = array('WaktuValidasiPesanan'=>$waktu_validasi_pesanan, 'WaktuDikajiUlang'=>$waktu_dikaji_ulang,
                 'StatusUtama'=>$status_utama, 'WaktuDianalisis'=>$waktu_dianalisis, 'WaktuSelesai'=>$waktu_selesai,
                 'WaktuUlasan'=>$waktu_ulasan, 'WaktuPesananDibuat'=>$waktu_pesanan_dibuat, 'StatusPembayaran'=>$status_pembayaran,
-                'WaktuPembayaran'=>$waktu_pembayaran, 'StatusKirimSampel'=>$status_kirim_sampel, 'WaktuTerimaSisa'=>$waktu_terima_sisa,
+                'WaktuPembayaran'=>$waktu_pembayaran, 'StatusKirimSampel'=>$status_kirim_sampel,
+                'WaktuKirimSampel'=>$waktu_kirim_sampel , 'WaktuTerimaSisa'=>$waktu_terima_sisa,
                 'WaktuTerimaSertifikat'=>$waktu_terima_sertif, 'StatusSisaSampel'=>$status_sisa_sampel,
                 'ResiPengirimanSisa'=>$resi_sisa_sampel, 'ResiPengirimanSertif'=>$resi_sertif,
                 'StatusKirimSertifikat'=>$status_kirim_sertifikat);
