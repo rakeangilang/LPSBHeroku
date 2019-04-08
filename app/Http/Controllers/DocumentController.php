@@ -74,9 +74,9 @@ class DocumentController extends Controller
             $id_pelanggan = 'abc';
             //$all_req = 'abc';
             if($request->hasFile('photo')){
-            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>'aman bosq', 'Status'=>200], 200);    
+            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>'Foto terdeteksi', 'Status'=>200], 200);    
             }
-            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>'kosong mase', 'Status'=>200], 200);
+            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
         }
         catch(\Exception $e) {
             return response()->json(['success'=>false, 'DebugRequest'=>$e->getMessage(),'Status'=>500], 200);
