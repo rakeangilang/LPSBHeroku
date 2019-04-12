@@ -86,9 +86,9 @@ class DocumentController extends Controller
             //    ]);
 
             if($request->hasFile('photo')){
-                $img_path = Storage::putFileAs(
-                'photos', $request->file('photo'), "ini_gambar"
-            );
+                $foto = $request->file('photo');
+                $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
+                $img_path = $foto->storeAs('photos1', $nama_foto);
 //            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
 
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$img_path, 'Status'=>200], 200);
