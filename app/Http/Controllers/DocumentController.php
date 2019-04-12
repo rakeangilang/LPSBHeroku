@@ -91,7 +91,7 @@ class DocumentController extends Controller
                 $img_path = $foto->storeAs('photos1', $nama_foto);
 //            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
 
-            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$img_path, 'Status'=>200], 200);
+            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
             }
 
             if($request->hasFile('img') || $request->hasFile('photo')){
