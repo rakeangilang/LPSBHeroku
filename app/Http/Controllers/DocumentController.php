@@ -7,7 +7,7 @@ use App\DokumenPesanan;
 use App\Pelacakan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
@@ -85,9 +85,14 @@ class DocumentController extends Controller
             //    'WaktuPembayaran'=>$waktu_sekarang
             //    ]);
 
-            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
+            if($request->hasFile('photo')){
+                $img_path = Storage::putFileAs(
+                'photos', $request->file('photo'), "ini_gambar"
+            );
+//            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
 
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$img_path, 'Status'=>200], 200);
+            }
 
             if($request->hasFile('img') || $request->hasFile('photo')){
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>'Foto terdeteksi', 'Status'=>200], 200);    
