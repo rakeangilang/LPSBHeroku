@@ -94,10 +94,10 @@ class DocumentController extends Controller
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
             }
 
-            if($request->hasFile('img') || $request->hasFile('photo')){
-            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>'Foto terdeteksi', 'Status'=>200], 200);    
-            }
-            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
+            //if($request->hasFile('img') || $request->hasFile('photo')){
+            //return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>'Foto terdeteksi', 'Status'=>200], 200);    
+            //}
+            //return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
         }
         catch(\Exception $e) {
             return response()->json(['success'=>false, 'DebugRequest'=>$e->getMessage(),'Status'=>500], 200);
