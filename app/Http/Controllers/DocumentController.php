@@ -85,6 +85,8 @@ class DocumentController extends Controller
             //    'WaktuPembayaran'=>$waktu_sekarang
             //    ]);
 
+            return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
+
             if($request->hasFile('photo')){
                 $foto = $request->file('photo');
                 $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
