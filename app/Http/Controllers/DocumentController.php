@@ -68,6 +68,7 @@ class DocumentController extends Controller
 
     public function uploadBuktiPembayaran($pes, User $user, Request $request)
     {
+        return $request;
         try
         {
 //            $gambar = $request;
