@@ -68,7 +68,7 @@ class DocumentController extends Controller
 
     public function uploadBuktiPembayaran($pes, User $user, Request $request)
     {
-        return $request;
+        //return $request;
         try
         {
 //            $gambar = $request;
@@ -85,7 +85,10 @@ class DocumentController extends Controller
             //    'Pembayaran'=>2, 
             //    'WaktuPembayaran'=>$waktu_sekarang
             //    ]);
-
+            $dbg = $request->getContent();
+            if($dbg!=null){
+                return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kebaca", 'Status'=>200], 200);    
+            }
             return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
 
             if($request->hasFile('photo')){
