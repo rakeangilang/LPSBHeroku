@@ -61,4 +61,4 @@ Route::post('/readPemberitahuan', 'PemberitahuanController@readPemberitahuan')->
 Route::get('/getGambar', 'PesananController@getGambar');
 Route::get('/generatePermohonanAnalisis', 'DocumentController@generateFormPermohonanAnalisis');
 Route::post('/uploadBuktiPembayaran/{pes}', 'DocumentController@uploadBuktiPembayaran')->middleware('auth:api');
-Route::post('/hatata', 'DocumentController@uploadBuktiPembayaran');
+Route::post('/hatata', 'DocumentController@hatata');
