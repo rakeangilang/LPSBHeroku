@@ -66,11 +66,16 @@ class DocumentController extends Controller
         return response()->download(storage_path('tes.docx'), $base_name, $headers);
     }
 
+    public function uploadBuktiPembayaran1($pes, User $user, Request $request){
+        return response()->json(['asdf'=>2], 200);
+    }
+
     public function uploadBuktiPembayaran($pes, User $user, Request $request)
     {
         //return $request;
         try
         {
+            return response()->json(['asdf'=>2], 200);
 //            $gambar = $request;
             $id_pelanggan = $request->user()->IDPelanggan;
             //$debug_request = dd($request);
