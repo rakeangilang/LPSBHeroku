@@ -82,7 +82,7 @@ class DocumentController extends Controller
             $all_req = $request->all();
             $id_pesanan = $pes;
             //$all_req = 'abc';
-            if($request->hasfile('img')){
+            if($request->hasFile('img')){
                 return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"img kesave", 'Status'=>200], 200);
                 $foto = $request->file('img');
                 $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
