@@ -85,9 +85,6 @@ class DocumentController extends Controller
             //    'Pembayaran'=>2, 
             //    'WaktuPembayaran'=>$waktu_sekarang
             //    ]);
-            if($request->hasFile()){
-                return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"aaaa kebaca", 'Status'=>200], 200);
-            }
             $dbg = $request->getContent();
             if($dbg==null){
                 return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kosong", 'Status'=>200], 200);    
