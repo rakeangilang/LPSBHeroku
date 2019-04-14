@@ -82,6 +82,15 @@ class DocumentController extends Controller
             $all_req = $request->all();
             $id_pesanan = $pes;
             //$all_req = 'abc';
+            if($request->hasfile('img')){
+                return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"img kesave", 'Status'=>200], 200);
+                $foto = $request->file('img');
+                $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
+                $img_path = $foto->storeAs('photos1', $nama_foto);
+//            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
+
+            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"img kesave", 'Status'=>200], 200);
+            }
 
             //DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
             //$waktu_sekarang = Carbon::now('Asia/Jakarta')->toDateTimeString();
@@ -122,15 +131,7 @@ class DocumentController extends Controller
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"photo kesave", 'Status'=>200], 200);
             }
 
-            elseif($request->hasfile('img')){
-                return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"img kesave", 'Status'=>200], 200);
-                $foto = $request->file('img');
-                $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
-                $img_path = $foto->storeAs('photos1', $nama_foto);
-//            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
-
-            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"img kesave", 'Status'=>200], 200);
-            }
+            
                 
 
             //if($request->hasFile('img') || $request->hasFile('photo')){
