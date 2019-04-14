@@ -92,9 +92,9 @@ class DocumentController extends Controller
             if($dbg==null){
                 return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kosong", 'Status'=>200], 200);    
             }
-            if($dbg!=null){
-                return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kebaca", 'Status'=>200], 200);    
-            }
+            //if($dbg!=null){
+            //    return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kebaca", 'Status'=>200], 200);    
+            //}
 //            return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
 
             if($request->hasFile('photo')){
