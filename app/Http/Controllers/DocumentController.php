@@ -75,7 +75,6 @@ class DocumentController extends Controller
         //return $request;
         try
         {
-            return response()->json(['asdf'=>2], 200);
 //            $gambar = $request;
             $id_pelanggan = $request->user()->IDPelanggan;
             //$debug_request = dd($request);
