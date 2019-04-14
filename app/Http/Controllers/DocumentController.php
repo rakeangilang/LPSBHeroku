@@ -97,7 +97,20 @@ class DocumentController extends Controller
             //}
 //            return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
 
+            if($request->hasFile('Bukti Pembayaran.jpg')){
+                return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"photo kesave", 'Status'=>200], 200);
+            }
+                $foto = $request->file('photo');
+                $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
+                $img_path = $foto->storeAs('photos1', $nama_foto);
+//            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
+
+            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"bukti kesave", 'Status'=>200], 200);
+            }
+
             if($request->hasFile('photo')){
+                return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"photo kesave", 'Status'=>200], 200);
+            }
                 $foto = $request->file('photo');
                 $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
                 $img_path = $foto->storeAs('photos1', $nama_foto);
@@ -107,6 +120,8 @@ class DocumentController extends Controller
             }
 
             elseif($request->hasFile('img')){
+                return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"img kesave", 'Status'=>200], 200);
+            }
                 $foto = $request->file('img');
                 $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
                 $img_path = $foto->storeAs('photos1', $nama_foto);
