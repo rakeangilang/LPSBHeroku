@@ -125,7 +125,6 @@ class DocumentController extends Controller
 
             elseif($request->hasFile('img')){
                 return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"img kesave", 'Status'=>200], 200);
-            }
                 $foto = $request->file('img');
                 $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
                 $img_path = $foto->storeAs('photos1', $nama_foto);
@@ -133,6 +132,7 @@ class DocumentController extends Controller
 
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"img kesave", 'Status'=>200], 200);
             }
+                
 
             //if($request->hasFile('img') || $request->hasFile('photo')){
             //return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>'Foto terdeteksi', 'Status'=>200], 200);    
