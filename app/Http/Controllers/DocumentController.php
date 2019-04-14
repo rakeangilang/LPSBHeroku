@@ -68,6 +68,7 @@ class DocumentController extends Controller
 
     public function uploadBuktiPembayaran($pes, User $user, Request $request)
     {
+        return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"aaaa kebaca", 'Status'=>200], 200);
         //return $request;
         try
         {
