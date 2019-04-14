@@ -86,6 +86,9 @@ class DocumentController extends Controller
             //    'WaktuPembayaran'=>$waktu_sekarang
             //    ]);
             $dbg = $request->getContent();
+            if($dbg==null){
+                return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kosong", 'Status'=>200], 200);    
+            }
             if($dbg!=null){
                 return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kebaca", 'Status'=>200], 200);    
             }
