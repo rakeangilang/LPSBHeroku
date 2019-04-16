@@ -66,4 +66,4 @@ Route::post('/getPermohonanAnalisis/{pes}', 'DocumentController@getPermohonanAna
 Route::post('/getTandaTerimaSampel/{pes}', 'DocumentController@getTandaTerimaSampel')->middleware('auth:api');
 Route::post('/getSertifikat/{pes}', 'DocumentController@getSertifikat')->middleware('auth:api');
 //Route::post('/hatata', 'DocumentController@hatata');
-
+Route::post('/uploadBuktiPembayaran/{pes}', 'DocumentController@uploadBuktiPembayaran')->middleware('auth:api');
