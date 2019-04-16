@@ -88,6 +88,37 @@ class DocumentController extends Controller
             return response()->json(['success'=>false, 'message'=>$e->getMessage(),'Status'=>500], 200);
         }
     }
+
+    public function getKategoriImages($pth, User $user, Request $request)
+    {
+        try{
+            $img_subpath = $pth;
+            $img_path = storage_path('images/kategori/'.$img_subpath);
+            $extension = pathinfo($img_path, PATHINFO_EXTENSION);
+            $headers = ['Content-Type'=>'image/'.$extension];
+
+            return response()->file('img_path', $headers);
+        }
+        catch(\Exception $e){
+            return response()->json(['success'=>false, 'message'=>$e->getMessage(),'Status'=>500], 200);
+        }
+    }
+
+    public function getKatalogImages($pth, User $user, Request $request)
+    {
+        try{
+            $img_subpath = $pth;
+            $img_path = storage_path('images/katalog/'.$img_subpath);
+            $extension = pathinfo($img_path, PATHINFO_EXTENSION);
+            $headers = ['Content-Type'=>'image/'.$extension];
+
+            return response()->file('img_path', $headers);
+        }
+        catch(\Exception $e){
+            return response()->json(['success'=>false, 'message'=>$e->getMessage(),'Status'=>500], 200);
+        }
+    }
+
     //
     public function generateFormPermohonanAnalisis()
     {
