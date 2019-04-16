@@ -66,6 +66,6 @@ Route::get('/getPermohonanAnalisis/{pes}', 'DocumentController@getPermohonanAnal
 Route::get('/getTandaTerimaSampel/{pes}', 'DocumentController@getTandaTerimaSampel')->middleware('auth:api');
 Route::get('/getSertifikat/{pes}', 'DocumentController@getSertifikat')->middleware('auth:api');
 Route::get('/kategoriImages/{pth}', 'DocumentController@getKategoriImages');
-Route::get('/katalogImages/{pth}', 'DocumentController@getKatalogImages')->middleware('auth:api');
+Route::get('/katalogImages/{pth}', 'DocumentController@getKatalogImages');
 //Route::post('/hatata', 'DocumentController@hatata');
 Route::post('/uploadBuktiPembayaran/{pes}', 'DocumentController@uploadBuktiPembayaran')->middleware('auth:api');
