@@ -54,7 +54,7 @@ class DocumentController extends Controller
             else
             {
                 //$doc_path = storage_path('tanda_terima_sampel/'.$doc_name);
-                $doc_path = storage_path('tanda_terima_sampel/Rules_Dota_2.docx');
+                $doc_path = storage_path('tanda_terima_sampel/Hasil Sutedjo Purnomo.docx');
 
                 return response()->download($doc_path, $doc_name, [], 'inline');
             }
