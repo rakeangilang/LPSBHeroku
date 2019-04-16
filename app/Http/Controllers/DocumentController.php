@@ -69,7 +69,7 @@ class DocumentController extends Controller
         $templateProcessor->saveAs($hasil_path);
         $headers = ['Content-Type'=>'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'Content-Disposition'=> 'attachment; filename="'.$filename.'"'];
 
-        return response()->download($hasil_path, $base_name . '.docx', [], 'inline');
+        return response()->download($hasil_path, $base_name . '.docx', $headers, 'inline');
         // ahahaha
 
 
