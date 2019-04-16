@@ -15,7 +15,7 @@ class UpdateRecordsAtKategoriRelated extends Migration
     {
         //
         DB::table('kategori')->where('IDKategori', 1)->update([
-            "FotoKategori"=>"fitokimia.png";
+            "FotoKategori"=>"fitokimia.png"
         ]);
 
         DB::table('kategori')->where('IDKategori', 2)->update([
