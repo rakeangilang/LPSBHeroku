@@ -60,5 +60,10 @@ Route::post('/readPemberitahuan', 'PemberitahuanController@readPemberitahuan')->
 //tes
 Route::get('/getGambar', 'PesananController@getGambar');
 Route::get('/generatePermohonanAnalisis', 'DocumentController@generateFormPermohonanAnalisis');
-Route::post('/uploadBuktiPembayaran/{pes}', 'DocumentController@uploadBuktiPembayaran')->middleware('auth:api');
-Route::post('/hatata', 'DocumentController@hatata');
+
+//Dokumen dan file
+Route::post('/getPermohonanAnalisis/{pes}', 'DocumentController@getPermohonanAnalisis')->middleware('auth:api');
+Route::post('/getTandaTerimaSampel/{pes}', 'DocumentController@getTandaTerimaSampel')->middleware('auth:api');
+Route::post('/getSertifikat/{pes}', 'DocumentController@getSertifikat')->middleware('auth:api');
+//Route::post('/hatata', 'DocumentController@hatata');
+

@@ -11,6 +11,83 @@ use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
+    public function getPermohonanAnalisis($pes, User $user, Request $request)
+    {
+        try{
+            $id_pesanan = $pes;
+            $doc_name = DokumenPesanan::select('PermohonanAnalisis')->where('IDPesanan', $id_pesanan)->first()->PermohonanAnalisis;
+            // Set doc name while admin's apps not yet developed
+            $doc_name = "permohonan_analisis.docx";
+
+            // Jika dokumen tidak tersedia
+            if($doc_name==null)
+            {
+                return response()->json(['success'=>false, 'message'=>"Dokumen tidak tersedia",'Status'=>500], 200);
+            }
+            
+            else
+            {
+                $doc_path = storage_path('permohonan_analisis/'.$doc_name);
+                
+                return response()->download($doc_path, $doc_name, [], 'inline');
+            }
+        }
+        catch(\Exception $e){
+            return response()->json(['success'=>false, 'message'=>$e->getMessage(),'Status'=>500], 200);
+        }
+    }
+
+    public function getTandaTerimaSampel($pes, User $user, Request $request)
+    {
+        try{
+            $id_pesanan = $pes;
+            $doc_name = DokumenPesanan::select('TandaTerimaSampel')->where('IDPesanan', $id_pesanan)->first()->TandaTerimaSampel;
+            // Set doc name while admin's apps not yet developed
+            $doc_name = "tanda_terima_sampel.docx";
+
+            // Jika dokumen tidak tersedia
+            if($doc_name==null)
+            {
+                return response()->json(['success'=>false, 'message'=>"Dokumen tidak tersedia",'Status'=>500], 200);
+            }
+
+            else
+            {
+                $doc_path = storage_path('tanda_terima_sampel/'.$doc_name);
+
+                return response()->download($doc_path, $doc_name, [], 'inline');
+            }
+        }
+        catch(\Exception $e){
+            return response()->json(['success'=>false, 'message'=>$e->getMessage(),'Status'=>500], 200);
+        }
+    }
+
+    public function getSertifikat($pes, User $user, Request $request)
+    {
+        try{
+            $id_pesanan = $pes;
+            $doc_name = DokumenPesanan::select('Sertifikat')->where('IDPesanan', $id_pesanan)->first()->Sertifikat;
+            // Set doc name while admin's apps not yet developed
+            $doc_name = "sertifikat.docx";
+
+            // Jika dokumen tidak tersedia
+            if($doc_name==null)
+            {
+                return response()->json(['success'=>false, 'message'=>"Dokumen tidak tersedia",'Status'=>500], 200);
+            }
+
+            else
+            {
+               $doc_path = storage_path('sertifikat/'.$doc_name);
+
+                return response()->download($doc_path, $doc_name, [], 'inline');
+            }
+        }
+        catch(\Exception $e){
+            return response()->json(['success'=>false, 'message'=>$e->getMessage(),'Status'=>500], 200);
+        }
+    }
     //
     public function generateFormPermohonanAnalisis()
     {
@@ -66,10 +143,6 @@ class DocumentController extends Controller
         return response()->download(storage_path('tes.docx'), $base_name, $headers);
     }
 
-    public function hatata(User $user, Request $request){
-        return response()->json(['asdf'=>2], 200);
-    }
-
     public function uploadBuktiPembayaran($pes, User $user, Request $request)
     {
         //return $request;
@@ -88,7 +161,7 @@ class DocumentController extends Controller
                 $img_path = $foto->storeAs('photos1', $nama_foto);
 //            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
 
-            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"img kesave", 'Status'=>200], 200);
+            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
             }
 
             //DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
