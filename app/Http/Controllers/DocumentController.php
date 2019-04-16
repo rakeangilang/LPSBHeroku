@@ -40,9 +40,6 @@ class DocumentController extends Controller
     public function getTandaTerimaSampel($pes, User $user, Request $request)
     {
         try{
-
-            return response()->json(['success'=>false, 'message'=>"asdf",'Status'=>500], 200);
-
             $nama = "Sutedjo Purnomo";
         $perusahaan = "PT. Makmur Sejahtera";
         $alamat = "Perum. Kalibaru Permai Blok C1 No.1, Cilodong, Depok";
