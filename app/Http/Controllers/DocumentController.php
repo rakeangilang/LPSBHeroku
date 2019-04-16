@@ -97,7 +97,7 @@ class DocumentController extends Controller
             $extension = pathinfo($img_path, PATHINFO_EXTENSION);
             $headers = ['Content-Type'=>'image/'.$extension];
 
-            return response()->file('img_path', $headers);
+            return response()->file($img_path, $headers);
         }
         catch(\Exception $e){
             return response()->json(['success'=>false, 'message'=>$e->getMessage(),'Status'=>500], 200);
@@ -112,7 +112,7 @@ class DocumentController extends Controller
             $extension = pathinfo($img_path, PATHINFO_EXTENSION);
             $headers = ['Content-Type'=>'image/'.$extension];
 
-            return response()->file('img_path', $headers);
+            return response()->file($img_path, $headers);
         }
         catch(\Exception $e){
             return response()->json(['success'=>false, 'message'=>$e->getMessage(),'Status'=>500], 200);
