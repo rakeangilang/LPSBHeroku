@@ -49,11 +49,12 @@ class KeranjangController extends Controller
         $keranjangs = Keranjang::where('IDPelanggan', $id_pelanggan)->orderBy('IDItem', 'desc')->get();
 
         foreach($keranjangs as $keranjang){
-            $katalog = Katalog::select('JenisAnalisis', 'Metode', 'HargaIPB', 'HargaNONIPB')->where('IDKatalog', $keranjang->IDKatalog)->first();
+            $katalog = Katalog::select('JenisAnalisis', 'Metode', 'HargaIPB', 'HargaNONIPB', 'FotoKatalog')->where('IDKatalog', $keranjang->IDKatalog)->first();
             $keranjang->setAttribute('JenisAnalisis', $katalog->JenisAnalisis);
             $keranjang->setAttribute('Metode', $katalog->Metode);
             $keranjang->setAttribute('HargaIPB', $katalog->HargaIPB);
             $keranjang->setAttribute('HargaNONIPB', $katalog->HargaNONIPB);
+            $keranjang->setAttribute('Foto', $katalog->FotoKatalog);
         }
 
         return response()->json([
