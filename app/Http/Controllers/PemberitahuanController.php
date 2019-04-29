@@ -106,7 +106,7 @@ class PemberitahuanController extends Controller
     {
         try{
         $id_pelanggan = $request->user()->IDPelanggan;
-        //$cekBatasWaktuPembayaran = $this->cekBatasWaktuPembayaran($id_pelanggan);
+        $cekBatasWaktuPembayaran = $this->cekBatasWaktuPembayaran($id_pelanggan);
         $pemberitahuans = Pemberitahuan::where('IDPelanggan', $id_pelanggan)->orderBy('WaktuPemberitahuan', 'desc')->get();
 
         foreach ($pemberitahuans as $pemberitahuan)
