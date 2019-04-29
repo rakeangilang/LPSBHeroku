@@ -159,9 +159,7 @@ class PemberitahuanController extends Controller
             {
                 $waktu_verif_pesanan = Pemberitahuan::select('WaktuPemberitahuan')->where('IDPesanan', $id_pesanan)
                                         ->where('IDStatus', 2)->first()->WaktuPemberitahuan;
-                $waktu_sekarang = Carbon::now('Asia/Jakarta')->toDateTimeString();
-                $a = gettype($waktu_verif_pesanan);
-                return $a;
+                $waktu_sekarang = Carbon::now('Asia/Jakarta');
                 $perbedaan_waktu = $waktu_sekarang->diffInHours($waktu_verif_pesanan);
                 // kondisi batal -> jika lebih dari 3 hari belum bayar = auto batal
                 if($perbedaan_waktu > 72)
