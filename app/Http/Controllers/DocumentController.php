@@ -18,6 +18,8 @@ class DocumentController extends Controller
             //$doc_name = DokumenPesanan::select('PermohonanAnalisis')->where('IDPesanan', $id_pesanan)->first()->PermohonanAnalisis;
             // Set doc name while admin's apps not yet developed
             $doc_name = "permohonan_analisis.docx";
+            $filename="abc.docx";
+            $headers = ['Content-Type'=>'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'Content-Disposition'=> 'attachment; filename="'.$filename.'"'];
 
             // Jika dokumen tidak tersedia
             if($doc_name==null)
@@ -29,6 +31,7 @@ class DocumentController extends Controller
             {
                 $doc_path = storage_path('permohonan_analisis/'.$doc_name);
                 
+                return response()->file($doc_path, $headers);
                 return response()->download($doc_path, $doc_name, [], 'inline');
             }
         }
