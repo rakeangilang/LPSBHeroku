@@ -15,7 +15,7 @@ class DocumentController extends Controller
     {
         try{
             $id_pesanan = $pes;
-            $doc_name = DokumenPesanan::select('PermohonanAnalisis')->where('IDPesanan', $id_pesanan)->first()->PermohonanAnalisis;
+            //$doc_name = DokumenPesanan::select('PermohonanAnalisis')->where('IDPesanan', $id_pesanan)->first()->PermohonanAnalisis;
             // Set doc name while admin's apps not yet developed
             $doc_name = "permohonan_analisis.docx";
 
