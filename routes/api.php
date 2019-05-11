@@ -59,7 +59,7 @@ Route::post('/readPemberitahuan', 'PemberitahuanController@readPemberitahuan')->
 
 //tes
 Route::get('/getGambar', 'PesananController@getGambar');
-Route::get('/generatePermohonanAnalisis', 'DocumentController@generateFormPermohonanAnalisis');
+Route::get('/generatePermohonanAnalisis', 'DocumentController@generateFormPermohonanAnalisis')->middleware('auth:api');
 
 //Dokumen dan file
 Route::get('/getPermohonanAnalisis/{pes}', 'DocumentController@getPermohonanAnalisis')->middleware('auth:api');
