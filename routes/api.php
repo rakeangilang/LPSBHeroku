@@ -64,7 +64,7 @@ Route::get('/generatePermohonanAnalisis', 'DocumentController@generateFormPermoh
 //Dokumen dan file
 Route::get('/getPermohonanAnalisis/{pes}', 'DocumentController@getPermohonanAnalisis');
 Route::get('/getTandaTerimaSampel/{pes}', 'DocumentController@getTandaTerimaSampel');
-Route::get('/getSertifikat/{pes}', 'DocumentController@getSertifikat');
+Route::get('/getSertifikat/{pes}', 'DocumentController@getSertifikat')->middleware('auth:api');
 Route::get('/kategoriImages/{pth}', 'DocumentController@getKategoriImages');
 Route::get('/katalogImages/{pth}', 'DocumentController@getKatalogImages');
 //Route::post('/hatata', 'DocumentController@hatata');
