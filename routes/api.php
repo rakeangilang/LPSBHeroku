@@ -62,8 +62,8 @@ Route::get('/getGambar', 'PesananController@getGambar');
 Route::get('/generatePermohonanAnalisis', 'DocumentController@generateFormPermohonanAnalisis')->middleware('auth:api');
 
 //Dokumen dan file
-Route::get('/getPermohonanAnalisis/{pes}', 'DocumentController@getPermohonanAnalisis');
-Route::get('/getTandaTerimaSampel/{pes}', 'DocumentController@getTandaTerimaSampel');
+Route::get('/getPermohonanAnalisis/{pes}', 'DocumentController@getPermohonanAnalisis')->middleware('auth:api');
+Route::get('/getTandaTerimaSampel/{pes}', 'DocumentController@getTandaTerimaSampel')->middleware('auth:api');
 Route::get('/getSertifikat/{pes}', 'DocumentController@getSertifikat')->middleware('auth:api');
 Route::get('/kategoriImages/{pth}', 'DocumentController@getKategoriImages');
 Route::get('/katalogImages/{pth}', 'DocumentController@getKatalogImages');
