@@ -222,7 +222,7 @@ class DocumentController extends Controller
             $all_req = $request->all();
             $id_pesanan = $pes;
 
-            if($request->hasFile()){
+            if($request->hasFile('img')){
                 //$foto = $request->file('img');
                 //$nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
                 //$img_path = $foto->storeAs('photos1', $nama_foto);
