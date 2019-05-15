@@ -223,10 +223,10 @@ class DocumentController extends Controller
             $id_pesanan = $pes;
 
             if($request->hasFile('img')) {
-                //$foto = $request->file('img');
-                //$nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
-                //$img_path = $foto->storeAs('photos1', $nama_foto);
-                //$bayar = "Bukti pembayaran";
+                $foto = $request->file('img');
+                $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
+                $img_path = $foto->storeAs('photos1', $nama_foto);
+                $bayar = "Bukti pembayaran";
 //            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
 
             //    DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
@@ -249,6 +249,13 @@ class DocumentController extends Controller
             if($dbg==null){
                 return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kosong", 'Status'=>200], 200);    
             }
+
+            DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
+                $waktu_sekarang = Carbon::now('Asia/Jakarta')->toDateTimeString();
+                Pelacakan::where('IDPesanan', $id_pesanan)->update([
+                  'Pembayaran'=>2,
+                  'WaktuPembayaran'=>$waktu_sekarang
+                ]);
 
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
         }
