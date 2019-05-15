@@ -226,7 +226,7 @@ class DocumentController extends Controller
                 $foto = $request->file('img');
                 $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
                 $img_path = $foto->storeAs('photos1', $nama_foto);
-                $bayar = "Bukti pembayaran";
+                //$bayar = "Bukti pembayaran";
 //            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
 
                 //DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
