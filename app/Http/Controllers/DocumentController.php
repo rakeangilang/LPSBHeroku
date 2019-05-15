@@ -216,18 +216,25 @@ class DocumentController extends Controller
     {
         try
         {
-//            $gambar = $request;
             $id_pelanggan = $request->user()->IDPelanggan;
             //$debug_request = dd($request);
             $bayar = "Bukti bayar";
             $all_req = $request->all();
             $id_pesanan = $pes;
-            //$all_req = 'abc';
+
             if($request->hasFile('img')){
                 $foto = $request->file('img');
                 $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
                 $img_path = $foto->storeAs('photos1', $nama_foto);
+                //$bayar = "Bukti pembayaran";
 //            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
+
+                DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
+                $waktu_sekarang = Carbon::now('Asia/Jakarta')->toDateTimeString();
+                Pelacakan::where('IDPesanan', $id_pesanan)->update([
+                  'Pembayaran'=>2,
+                  'WaktuPembayaran'=>$waktu_sekarang
+                ]);
 
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
             }
@@ -238,45 +245,11 @@ class DocumentController extends Controller
             //    'Pembayaran'=>2, 
             //    'WaktuPembayaran'=>$waktu_sekarang
             //    ]);
-            if($request->hasFile('fileName')){
-                return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"aaaa kebaca", 'Status'=>200], 200);
-            }
             $dbg = $request->getContent();
             if($dbg==null){
                 return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kosong", 'Status'=>200], 200);    
             }
-            //if($dbg!=null){
-            //    return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kebaca", 'Status'=>200], 200);    
-            //}
-//            return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
 
-            if($request->hasFile('Bukti Pembayaran.jpg')){
-                return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"bukti kesave", 'Status'=>200], 200);
-                $foto = $request->file('photo');
-                $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
-                $img_path = $foto->storeAs('photos1', $nama_foto);
-//            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
-
-            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"bukti kesave", 'Status'=>200], 200);
-            }
-                
-
-            if($request->hasFile('photo')){
-                return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"photo kesave", 'Status'=>200], 200);
-                $foto = $request->file('photo');
-                $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
-                $img_path = $foto->storeAs('photos1', $nama_foto);
-//            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
-
-            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"photo kesave", 'Status'=>200], 200);
-            }
-
-            
-                
-
-            //if($request->hasFile('img') || $request->hasFile('photo')){
-            //return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>'Foto terdeteksi', 'Status'=>200], 200);    
-            //}
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>"foto not detected", 'Status'=>200], 200);
         }
         catch(\Exception $e) {
