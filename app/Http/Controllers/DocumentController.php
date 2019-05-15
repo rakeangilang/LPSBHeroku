@@ -229,7 +229,7 @@ class DocumentController extends Controller
                 $bayar = "Bukti pembayaran";
 //            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
 
-                DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
+                //DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
                 //$waktu_sekarang = Carbon::now('Asia/Jakarta')->toDateTimeString();
                 //Pelacakan::where('IDPesanan', $id_pesanan)->update([
                  //   'Pembayaran'=>2,
