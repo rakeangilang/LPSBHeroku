@@ -398,6 +398,8 @@ class PesananController extends Controller
             // get status
             $waktu_pesanan_dibuat = Pesanan::select('WaktuPemesanan')->where('IDPesanan', $id_pesanan)->first()->WaktuPemesanan;
             $waktu_pesanan_dibuat = $waktu_pesanan_dibuat->toDateTimeString();
+            $waktu_status_utama = Pelacakan::select('UpdateTerakhir')->where('IDPesanan', $id_pesanan)->first()->UpdateTerakhir;
+            if($waktu_status_utama!=null) $waktu_status_utama = $waktu_status_utama->toDateTimeString();
             $status_pembayaran = Pelacakan::select('Pembayaran')->where('IDPesanan', $id_pesanan)->first()->Pembayaran;
             $status_kirim_sampel = Pelacakan::select('KirimSampel')->where('IDPesanan', $id_pesanan)->first()->KirimSampel;
             $status_sisa_sampel = Pelacakan::select('SisaSampel')->where('IDPesanan', $id_pesanan)->first()->SisaSampel;
@@ -514,7 +516,7 @@ class PesananController extends Controller
             // segmen 3 = batal
             if($batal_pelanggan) {
                 $status_pesanan = array('WaktuValidasiPesanan'=>$waktu_validasi_pesanan, 'WaktuDikajiUlang'=>$waktu_dikaji_ulang,
-                'StatusUtama'=>$status_utama,
+                'StatusUtama'=>$status_utama, 'WaktuStatusUtama'=>$waktu_status_utama,
                 'WaktuDibatalkan'=>$waktu_dibatalkan, 'WaktuPesananDibuat'=>$waktu_pesanan_dibuat,
                 'StatusPembayaran'=>$status_pembayaran, 'WaktuPembayaran'=>$waktu_pembayaran, 
                 'StatusKirimSampel'=>$status_kirim_sampel, 'WaktuKirimSampel'=>$waktu_kirim_sampel,
@@ -525,7 +527,7 @@ class PesananController extends Controller
                 $alasan_batal = AdministrasiPesanan::select('CatatanPembatalan')->where('IDPesanan', $id_pesanan)
                                                 ->first()->CatatanPembatalan;
                 $status_pesanan = array('WaktuValidasiPesanan'=>$waktu_validasi_pesanan, 'WaktuDikajiUlang'=>$waktu_dikaji_ulang,
-                'StatusUtama'=>$status_utama, 'AlasanBatal'=>$alasan_batal,
+                'StatusUtama'=>$status_utama, 'WaktuStatusUtama'=>$waktu_status_utama, 'AlasanBatal'=>$alasan_batal,
                 'WaktuDibatalkan'=>$waktu_dibatalkan, 'WaktuPesananDibuat'=>$waktu_pesanan_dibuat,
                 'StatusPembayaran'=>$status_pembayaran, 'WaktuPembayaran'=>$waktu_pembayaran, 
                 'StatusKirimSampel'=>$status_kirim_sampel, 'WaktuKirimSampel'=>$waktu_kirim_sampel,
@@ -535,7 +537,7 @@ class PesananController extends Controller
             // segmen 2 = selesai
             elseif($selesai) {
                 $status_pesanan = array('WaktuValidasiPesanan'=>$waktu_validasi_pesanan, 'WaktuDikajiUlang'=>$waktu_dikaji_ulang,
-                'StatusUtama'=>$status_utama, 'WaktuDianalisis'=>$waktu_dianalisis, 'WaktuSelesai'=>$waktu_selesai,
+                'StatusUtama'=>$status_utama, 'WaktuStatusUtama'=>$waktu_status_utama, 'WaktuDianalisis'=>$waktu_dianalisis, 'WaktuSelesai'=>$waktu_selesai,
                 'WaktuUlasan'=>$waktu_ulasan, 'WaktuPesananDibuat'=>$waktu_pesanan_dibuat, 'StatusPembayaran'=>$status_pembayaran,
                 'WaktuPembayaran'=>$waktu_pembayaran, 'StatusKirimSampel'=>$status_kirim_sampel,
                 'WaktuKirimSampel'=>$waktu_kirim_sampel , 'WaktuTerimaSisa'=>$waktu_terima_sisa,
@@ -546,7 +548,7 @@ class PesananController extends Controller
             // segmen 1 = dianalisis
             else {
                 $status_pesanan = array('WaktuValidasiPesanan'=>$waktu_validasi_pesanan, 'WaktuDikajiUlang'=>$waktu_dikaji_ulang,
-                'StatusUtama'=>$status_utama, 'WaktuDianalisis'=>$waktu_dianalisis, 'WaktuPesananDibuat'=>$waktu_pesanan_dibuat,
+                'StatusUtama'=>$status_utama, 'WaktuStatusUtama'=>$waktu_status_utama, 'WaktuDianalisis'=>$waktu_dianalisis, 'WaktuPesananDibuat'=>$waktu_pesanan_dibuat,
                 'StatusPembayaran'=>$status_pembayaran, 'WaktuPembayaran'=>$waktu_pembayaran,
                 'StatusKirimSampel'=>$status_kirim_sampel, 'WaktuKirimSampel'=>$waktu_kirim_sampel,
                 'StatusSisaSampel'=>$status_sisa_sampel, 'StatusKirimSertifikat'=>$status_kirim_sertifikat);
