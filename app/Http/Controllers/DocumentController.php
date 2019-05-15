@@ -230,6 +230,13 @@ class DocumentController extends Controller
                 $img_path = $foto->storeAs('photos1', $nama_foto);
 //            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
 
+                DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
+                $waktu_sekarang = Carbon::now('Asia/Jakarta')->toDateTimeString();
+                Pelacakan::where('IDPesanan', $id_pesanan)->update([
+                    'Pembayaran'=>2, 
+                    'WaktuPembayaran'=>$waktu_sekarang
+                ]);
+
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
             }
 
