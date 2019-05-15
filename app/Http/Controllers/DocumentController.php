@@ -223,9 +223,9 @@ class DocumentController extends Controller
             $id_pesanan = $pes;
 
             if($request->hasFile('img')){
-                $foto = $request->file('img');
-                $nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
-                $img_path = $foto->storeAs('photos1', $nama_foto);
+                //$foto = $request->file('img');
+                //$nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
+                //$img_path = $foto->storeAs('photos1', $nama_foto);
                 //$bayar = "Bukti pembayaran";
 //            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
 
