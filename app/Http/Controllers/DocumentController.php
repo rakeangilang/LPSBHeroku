@@ -230,11 +230,11 @@ class DocumentController extends Controller
 //            $img_path = $request->file('photo')->storeAs('photos', "ini_gambar");
 
                 DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
-                $waktu_sekarang = Carbon::now('Asia/Jakarta')->toDateTimeString();
-                Pelacakan::where('IDPesanan', $id_pesanan)->update([
-                    'Pembayaran'=>2,
-                    'WaktuPembayaran'=>$waktu_sekarang
-                ]);
+                //$waktu_sekarang = Carbon::now('Asia/Jakarta')->toDateTimeString();
+                //Pelacakan::where('IDPesanan', $id_pesanan)->update([
+                 //   'Pembayaran'=>2,
+                  //  'WaktuPembayaran'=>$waktu_sekarang
+                //]);
 
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
             }
@@ -244,7 +244,8 @@ class DocumentController extends Controller
             //Pelacakan::where('IDPesanan', $id_pesanan)->update([
             //    'Pembayaran'=>2, 
             //    'WaktuPembayaran'=>$waktu_sekarang
-            //    ]);dbg = $request->getContent();
+            //    ]);
+            $dbg = $request->getContent();
             if($dbg==null){
                 return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kosong", 'Status'=>200], 200);    
             }
