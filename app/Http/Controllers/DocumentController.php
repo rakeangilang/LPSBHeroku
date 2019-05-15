@@ -144,19 +144,19 @@ class DocumentController extends Controller
     public function getKatalogImages($pth, User $user, Request $request)
     {
         try{
-            //$img_subpath = $pth;
-            //$img_path = storage_path('images/katalog/'.$img_subpath);
-            //$extension = pathinfo($img_path, PATHINFO_EXTENSION);
-            //$headers = ['Content-Type'=>'image/'.$extension];
-            return response()->json(['success'=>true, 'message'=>"haha",'Status'=>500], 200);
-            //return response()->file($img_path, $headers);
+            $img_subpath = $pth;
+            $img_path = storage_path('images/katalog/'.$img_subpath);
+            $extension = pathinfo($img_path, PATHINFO_EXTENSION);
+            $headers = ['Content-Type'=>'image/'.$extension];
+
+            return response()->file($img_path, $headers);
         }
         catch(\Exception $e){
-            return response()->json(['success'=>false, 'message'=>"$e->getMessage()",'Status'=>500], 200);
+            return response()->json(['success'=>false, 'message'=>$e->getMessage(),'Status'=>500], 200);
         }
     }
 
-    //a
+    //
     public function generateFormPermohonanAnalisis()
     {
         //$dok_baru = new \PhpOffice\PhpWord\PhpWord();
@@ -222,7 +222,7 @@ class DocumentController extends Controller
             $all_req = $request->all();
             $id_pesanan = $pes;
 
-            if($request->hasFile('img') {
+            if($request->hasFile('img')) {
                 //$foto = $request->file('img');
                 //$nama_foto = "ini_gambar." . $foto->getClientOriginalExtension();
                 //$img_path = $foto->storeAs('photos1', $nama_foto);
