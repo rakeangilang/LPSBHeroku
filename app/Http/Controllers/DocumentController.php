@@ -148,7 +148,7 @@ class DocumentController extends Controller
             $img_path = storage_path('images/katalog/'.$img_subpath);
             $extension = pathinfo($img_path, PATHINFO_EXTENSION);
             $headers = ['Content-Type'=>'image/'.$extension];
-
+            return response()->json(['success'=>true, 'message'=>"haha",'Status'=>500], 200);
             return response()->file($img_path, $headers);
         }
         catch(\Exception $e){
