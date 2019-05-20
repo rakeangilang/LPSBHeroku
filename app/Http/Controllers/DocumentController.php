@@ -257,7 +257,7 @@ class DocumentController extends Controller
                   'WaktuPembayaran'=>$waktu_sekarang
                 ]);
 
-            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>200], 200);
+            return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>400], 400);
         }
         catch(\Exception $e) {
             return response()->json(['success'=>false, 'DebugRequest'=>$e->getMessage(),'Status'=>500], 200);
