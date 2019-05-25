@@ -250,12 +250,12 @@ class DocumentController extends Controller
                 return response()->json(['IDPelanggan'=>99, 'DebugRequest'=>"konten kosong", 'Status'=>200], 200);    
             }
 
-            DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
-                $waktu_sekarang = Carbon::now('Asia/Jakarta')->toDateTimeString();
-                Pelacakan::where('IDPesanan', $id_pesanan)->update([
-                  'Pembayaran'=>2,
-                  'WaktuPembayaran'=>$waktu_sekarang
-                ]);
+            //DokumenPesanan::where('IDPesanan', $id_pesanan)->update(['BuktiPembayaran'=>$bayar]);
+            //   $waktu_sekarang = Carbon::now('Asia/Jakarta')->toDateTimeString();
+            //    Pelacakan::where('IDPesanan', $id_pesanan)->update([
+            //      'Pembayaran'=>2,
+            //      'WaktuPembayaran'=>$waktu_sekarang
+            //    ]);
 
             return response()->json(['IDPelanggan'=>$id_pelanggan, 'DebugRequest'=>$all_req, 'Status'=>400], 400);
         }
